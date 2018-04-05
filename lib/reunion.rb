@@ -27,6 +27,13 @@ class Reunion
     total_owed
   end
 
-  
+  def generate_report
+    info = participants_owe
+    report = "Total amounts owed for reunion in #{location}:\n\n"
+    info.each do |participant, owed|
+      report += " -#{participant}: #{owed}\n"
+    end
+    report
+  end
 
 end

@@ -61,4 +61,18 @@ class ReunionTest < Minitest::Test
     assert_equal expected, actual
   end
 
+  def test_it_can_print_report
+    zip = Activity.new("Zip Line")
+    cave = Activity.new("Spelunking")
+    @r.add_activity(zip)
+    @r.add_activity(cave)
+    zip.add_participant("Bill", 15)
+    zip.add_participant("Mary", 25)
+    cave.add_participant("Bill", 10)
+    cave.add_participant("Mary", 40)
+    expected = "Total amounts owed for reunion in Chicago:\n\n -Bill: 20\n -Mary: -20\n"
+    actual = @r.generate_report
+    assert_equal expected, actual
+  end
+
 end
