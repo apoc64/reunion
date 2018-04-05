@@ -15,4 +15,10 @@ class Activity
     @participants.values.sum
   end
 
+  def amount_owed(name)
+    count = @participants.count
+    cost_per_participant = total_cost/count
+    cost_per_participant - @participants[name]
+  end
+
 end

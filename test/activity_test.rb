@@ -35,9 +35,8 @@ class ActivityTest < Minitest::Test
   end
 
   def test_it_can_evaluate_how_much_participants_owed
-    skip 
-    assert_equal 5, amount_owed("Mary")
-    assert_equal -5, amount_owed("Bill")
+    assert_equal -5, @a.amount_owed("Mary")
+    assert_equal 5, @a.amount_owed("Bill")
   end
 
 end
