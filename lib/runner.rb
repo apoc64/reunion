@@ -26,4 +26,6 @@ info = reunion.generate_report
 puts info
 
 erb = ERB.new("<h1>Reunion</h1><p><%=info%></p>")
-binding.pry
+
+file = File.open("index.html", "w")
+file.write(erb.result)
