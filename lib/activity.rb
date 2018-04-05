@@ -11,4 +11,10 @@ class Activity
     @participants << participant
   end
 
+  def total_cost
+    @participants.map do |participant|
+      participant[:paid]
+    end.sum
+  end
+
 end

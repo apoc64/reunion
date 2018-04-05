@@ -24,11 +24,17 @@ class ActivityTest < Minitest::Test
   def test_it_can_add_participants
     bill = {name: "Bill", paid: 15}
     mary = {name: "Mary", paid: 25}
-
     @a.add_participant(bill)
     @a.add_participant(mary)
-
     assert_equal @a.participants, [bill, mary]
+  end
+
+  def test_it_can_evaluate_total_cost
+    bill = {name: "Bill", paid: 15}
+    mary = {name: "Mary", paid: 25}
+    @a.add_participant(bill)
+    @a.add_participant(mary)
+    assert_equal @a.total_cost, 40
   end
 
 end
