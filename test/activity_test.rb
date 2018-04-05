@@ -7,6 +7,8 @@ class ActivityTest < Minitest::Test
 
   def setup
     @a = Activity.new("Zip Line")
+    @a.add_participant("Bill", 15)
+    @a.add_participant("Mary", 25)
   end
 
   def test_it_exists
@@ -18,23 +20,24 @@ class ActivityTest < Minitest::Test
   end
 
   def test_it_starts_with_no_participants
-    assert_equal @a.participants, []
+    new_activity = Activity.new("Spelunking")
+    assert_equal new_activity.participants, {}
   end
 
   def test_it_can_add_participants
-    bill = {name: "Bill", paid: 15}
-    mary = {name: "Mary", paid: 25}
-    @a.add_participant(bill)
-    @a.add_participant(mary)
-    assert_equal @a.participants, [bill, mary]
+    expected = {"Bill" => 15, "Mary" => 25}
+    assert_equal expected, @a.participants
+
   end
 
   def test_it_can_evaluate_total_cost
-    bill = {name: "Bill", paid: 15}
-    mary = {name: "Mary", paid: 25}
-    @a.add_participant(bill)
-    @a.add_participant(mary)
-    assert_equal @a.total_cost, 40
+    assert_equal 40, @a.total_cost
+  end
+
+  def test_it_can_evaluate_how_much_participants_owed
+    skip 
+    assert_equal 5, amount_owed("Mary")
+    assert_equal -5, amount_owed("Bill")
   end
 
 end

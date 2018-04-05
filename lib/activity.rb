@@ -4,17 +4,15 @@ class Activity
 
   def initialize(name)
     @name = name
-    @participants = []
+    @participants = Hash.new
   end
 
-  def add_participant(participant)
-    @participants << participant
+  def add_participant(name, amount_paid)
+    @participants[name] = amount_paid
   end
 
   def total_cost
-    @participants.map do |participant|
-      participant[:paid]
-    end.sum
+    @participants.values.sum
   end
 
 end
