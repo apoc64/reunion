@@ -34,9 +34,15 @@ class ActivityTest < Minitest::Test
     assert_equal 40, @a.total_cost
   end
 
-  def test_it_can_evaluate_how_much_participants_owed
+  def test_it_can_evaluate_how_much_participant_owed
     assert_equal -5, @a.amount_owed("Mary")
     assert_equal 5, @a.amount_owed("Bill")
   end
+
+  # def test_it_can_evaluate_what_all_participants_owe
+  #   expected = {"Bill" => 5, "Mary" => -5}
+  #   actual = @a.all_participants_owe
+  #   assert_equal expected, actual
+  # end
 
 end

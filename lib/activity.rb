@@ -21,4 +21,10 @@ class Activity
     cost_per_participant - @participants[name]
   end
 
+  # def all_participants_owe
+  #   @participants.keys.map do |participant|
+  #     [participant, amount_owed(participant)]
+  #   end.to_h
+  # end
+
 end
