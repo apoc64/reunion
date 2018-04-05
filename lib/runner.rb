@@ -25,7 +25,7 @@ volcano.add_participant("Dodo", 17)
 info = reunion.generate_report
 puts info
 
-erb = ERB.new("<h1>Reunion</h1><p><%=info%></p>")
+erb = ERB.new("<h1>Reunion</h1><pre><%=info%></pre>")
 
 file = File.open("index.html", "w")
 file.write(erb.result)
